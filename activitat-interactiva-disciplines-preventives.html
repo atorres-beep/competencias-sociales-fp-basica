@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Les disciplines preventives · Activitat interactiva</title>
+<style>
+:root{--ink:#19324a;--muted:#5b6b7a;--blue:#2563eb;--teal:#0f766e;--pale:#eff6ff;--line:#dbe4ee;--good:#166534;--goodbg:#dcfce7;--bad:#991b1b;--badbg:#fee2e2;--gold:#f59e0b}
+*{box-sizing:border-box}body{margin:0;background:#f3f7fb;color:var(--ink);font-family:Inter,Segoe UI,Arial,sans-serif;line-height:1.55}
+header{background:linear-gradient(120deg,#173b63,#0f766e);color:white;padding:32px 18px 28px}
+.wrap{max-width:1000px;margin:auto;padding:0 16px}
+.eyebrow{text-transform:uppercase;letter-spacing:.12em;font-size:.78rem;font-weight:800;opacity:.85}
+h1{font-size:clamp(1.8rem,4vw,2.7rem);line-height:1.1;margin:.45rem 0}
+header p{max-width:700px;margin:10px 0 0;color:#e3f2ff}
+.stats{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+.stat{background:#ffffff20;border:1px solid #ffffff35;border-radius:12px;padding:8px 13px;font-weight:700}
+main{padding:24px 0 48px}.panel{background:white;border:1px solid var(--line);border-radius:18px;padding:clamp(17px,3vw,28px);margin:18px 0;box-shadow:0 5px 18px #19324a0a}
+h2{margin:0 0 8px;font-size:1.45rem}h3{font-size:1.08rem;margin:0 0 8px}
+.intro{color:var(--muted);margin-top:0}
+.question{border:1px solid var(--line);border-radius:14px;padding:16px;margin:14px 0;background:#fff}
+.qtitle{font-weight:750;margin:0 0 12px}
+.options{display:grid;gap:8px}
+.option{display:flex;align-items:flex-start;gap:10px;border:1px solid #d9e3ed;border-radius:10px;padding:10px 12px;cursor:pointer;transition:.15s}
+.option:hover{background:#f5f9ff;border-color:#93b4f6}
+.option input{margin-top:5px;accent-color:var(--blue);flex-shrink:0}
+.option:has(input:checked){border-color:var(--blue);background:#eff6ff}
+.feedback{display:none;margin-top:12px;padding:11px 13px;border-radius:10px;font-size:.95rem}
+.feedback.show{display:block}.feedback.good{background:var(--goodbg);color:var(--good)}.feedback.bad{background:var(--badbg);color:var(--bad)}
+select{width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:9px;background:white;color:var(--ink);font:inherit}
+.match-row{display:grid;grid-template-columns:1fr minmax(220px,.9fr);gap:14px;align-items:center;padding:12px 0;border-bottom:1px solid #edf1f5}
+.match-row:last-child{border-bottom:0}.disc{font-weight:750}.desc{font-size:.94rem;color:var(--muted);margin-top:3px}
+button{border:0;border-radius:10px;padding:11px 16px;font:inherit;font-weight:750;cursor:pointer}
+.primary{background:var(--blue);color:white}.secondary{background:#e7eef7;color:var(--ink)}.teal{background:var(--teal);color:white}
+button:hover{filter:brightness(.96)}button:focus-visible,select:focus-visible,input:focus-visible{outline:3px solid #93c5fd;outline-offset:2px}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+#finalResult{display:none;margin-top:18px;padding:18px;border-radius:14px;background:#ecfeff;border:1px solid #99f6e4}
+.scorebig{font-size:2rem;font-weight:850;color:var(--teal)}
+.tip{border-left:4px solid var(--gold);background:#fffbeb;padding:12px 14px;border-radius:0 10px 10px 0;margin-top:16px}
+footer{text-align:center;color:var(--muted);font-size:.86rem;padding:0 16px 28px}
+@media(max-width:620px){.match-row{grid-template-columns:1fr;gap:8px}.panel{border-radius:14px}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+<div class="eyebrow">FOL · Prevenció de riscos laborals</div>
+<h1>Les disciplines preventives</h1>
+<p>Practica amb situacions reals i relaciona cada disciplina amb el seu objectiu. Respon, comprova les explicacions i torna-ho a intentar per millorar la puntuació.</p>
+<div class="stats"><div class="stat">🎯 2 exercicis</div><div class="stat">🧠 Aprèn amb feedback</div><div class="stat">⭐ <span id="scoreHeader">0</span> punts</div></div>
+</div></header>
+<main class="wrap">
+<section class="panel">
+<h2>Abans de començar: recordatori</h2>
+<p class="intro">Cada disciplina té un focus principal. En un cas real poden col·laborar-ne diverses, però aquí has d'identificar la que intervé principalment.</p>
+<div class="options">
+<div class="option" style="cursor:default"><span>🦺</span><div><b>Seguretat en el treball</b><br><span class="intro">Prevé accidents: caigudes, cops, atrapaments, bolcades...</span></div></div>
+<div class="option" style="cursor:default"><span>🧪</span><div><b>Higiene industrial</b><br><span class="intro">Identifica i controla contaminants físics, químics i biològics.</span></div></div>
+<div class="option" style="cursor:default"><span>🪑</span><div><b>Ergonomia</b><br><span class="intro">Adapta el lloc i les tasques a la persona; postures, esforços i fatiga física.</span></div></div>
+<div class="option" style="cursor:default"><span>🧠</span><div><b>Psicosociologia aplicada</b><br><span class="intro">Aborda estrès, càrrega mental, burnout i organització del treball.</span></div></div>
+<div class="option" style="cursor:default"><span>🩺</span><div><b>Medicina del treball</b><br><span class="intro">Vigila la salut, estudia els efectes sobre les persones i promou la detecció precoç.</span></div></div>
+</div>
+<div class="tip"><b>Compte amb els casos biològics:</b> la higiene industrial actua sobre l'exposició al virus i les mesures de control; la medicina del treball vigila la salut de la persona exposada o contagiada. En aquest exercici, el cas parla d'un contagi ja produït i demana la disciplina mèdica o tècnica principal: tria <b>Medicina del treball</b>.</div>
+</section>
+<section class="panel" id="exercise1">
+<h2>Exercici 1 · Quina disciplina ha d'intervenir?</h2>
+<p class="intro">Tria una resposta per a cada situació. Després prem «Comprova l'exercici» per veure les solucions i les explicacions.</p>
+<div id="caseQuestions"></div>
+<div class="actions"><button class="primary" onclick="checkCases()">Comprova l'exercici</button><button class="secondary" onclick="resetCases()">Torna-ho a provar</button></div>
+<div id="caseSummary" class="feedback"></div>
+</section>
+<section class="panel" id="exercise2">
+<h2>Exercici 2 · Relaciona les disciplines</h2>
+<p class="intro">Relaciona cada disciplina amb el seu objectiu principal. Selecciona la lletra que correspon.</p>
+<div id="matching"></div>
+<div class="actions"><button class="teal" onclick="checkMatch()">Comprova les relacions</button><button class="secondary" onclick="resetMatch()">Reinicia les relacions</button></div>
+<div id="matchSummary" class="feedback"></div>
+</section>
+<section class="panel">
+<h2>Resultat de la pràctica</h2>
+<p class="intro">La puntuació s'actualitza quan comproves cada exercici. Pots repetir-los tantes vegades com vulguis.</p>
+<div class="scorebig"><span id="scoreTotal">0</span> / 9 punts</div>
+<div id="finalResult">Quan hagis comprovat els dos exercicis, aquí veuràs el teu resultat global.</div>
+</section>
+</main>
+<footer>Activitat d'autoaprenentatge · Prevenció de riscos laborals</footer>
+<script>
+const disciplines = ["Seguretat en el treball","Higiene industrial","Ergonomia","Psicosociologia aplicada","Medicina del treball"];
+const cases = [
+{q:"a) Una metgessa es contagia pel virus de la xarampió després d'atendre un pacient a urgències.",a:4,why:"La medicina del treball intervé en la vigilància de la salut i el seguiment del contagi. La higiene industrial també és important per controlar l'exposició biològica i prevenir nous contagis."},
+{q:"b) Un programador pateix esgotament mental i ansietat per ritmes de treball excessius i torns canviants.",a:3,why:"La psicosociologia aplicada analitza els factors organitzatius i psicosocials, com els ritmes excessius, els torns, l'estrès i el burnout."},
+{q:"c) Un mosso de magatzem pateix la fractura d'un peu per la bolcada d'un carretó elevador.",a:0,why:"La seguretat en el treball se centra en evitar accidents com bolcades, atrapaments, cops i caigudes."},
+{q:"d) Una telefonista pateix contractures cervicals contínues per mantenir una postura forçada davant de la pantalla.",a:2,why:"L'ergonomia busca adaptar el lloc de treball a la persona i reduir postures forçades i trastorns musculoesquelètics."}
+];
+const objectives = [
+{letter:"a",text:"Controla contaminants físics, químics i biològics per evitar malalties professionals.",answer:1},
+{letter:"b",text:"Modifica les condicions físiques i mentals del lloc de treball per evitar fatiga i lesions musculoesquelètiques.",answer:2},
+{letter:"c",text:"Evita o redueix els accidents de treball que provoquen lesions físiques directes.",answer:0},
+{letter:"d",text:"Realitza la vigilància de la salut, tractaments i primers auxilis de la plantilla.",answer:4},
+{letter:"e",text:"Combat l'estrès, la insatisfacció laboral, el burnout i els factors organitzatius del treball.",answer:3}
+];
+let caseScore=0,matchScore=0,caseChecked=false,matchChecked=false;
+function renderCases(){
+ document.getElementById('caseQuestions').innerHTML=cases.map((c,i)=>`<div class="question"><p class="qtitle">${c.q}</p><div class="options">${disciplines.map((d,j)=>`<label class="option"><input type="radio" name="case${i}" value="${j}"><span>${d}</span></label>`).join('')}</div><div id="caseFb${i}" class="feedback"></div></div>`).join('');
+}
+function renderMatch(){
+ document.getElementById('matching').innerHTML=disciplines.map((d,i)=>`<div class="match-row"><div><div class="disc">${i+1}. ${d}</div><div class="desc">Tria l'objectiu que li correspon.</div></div><select id="match${i}" aria-label="Objectiu de ${d}"><option value="">— Selecciona una opció —</option>${objectives.map(o=>`<option value="${o.answer}">${o.letter}. ${o.text}</option>`).join('')}</select><div id="matchFb${i}" class="feedback"></div></div>`).join('');
+}
+function updateScore(){let total=caseScore+matchScore;document.getElementById('scoreTotal').textContent=total;document.getElementById('scoreHeader').textContent=total;let r=document.getElementById('finalResult');r.style.display='block';r.innerHTML=`<b>${total>=8?'Molt bé!':total>=5?'Bon començament!':'Continua practicant!'}</b> Has aconseguit ${total} de 9 punts. ${total===9?'Domines les cinc disciplines i la seva aplicació als casos.':'Revisa les explicacions i torna a provar els exercicis per consolidar els conceptes.'}`;}
+function checkCases(){
+ caseScore=0;caseChecked=true;
+ cases.forEach((c,i)=>{let sel=document.querySelector(`input[name="case${i}"]:checked`);let fb=document.getElementById('caseFb'+i);let correct=sel&&Number(sel.value)===c.a;if(correct)caseScore+=1;fb.className='feedback show '+(correct?'good':'bad');fb.innerHTML=`<b>${correct?'Correcte! +1 punt':'Resposta correcta: '+disciplines[c.a]}</b><br>${c.why}`;});
+ let s=document.getElementById('caseSummary');s.className='feedback show '+(caseScore===4?'good':'bad');s.innerHTML=`Resultat de l'exercici 1: <b>${caseScore}/4 punts</b>.`;updateScore();
+}
+function resetCases(){renderCases();caseScore=0;caseChecked=false;let s=document.getElementById('caseSummary');s.className='feedback';s.textContent='';updateScore();}
+function checkMatch(){
+ matchScore=0;matchChecked=true;
+ disciplines.forEach((d,i)=>{let val=document.getElementById('match'+i).value;let correct=val!==''&&Number(val)===i;if(correct)matchScore+=1;let fb=document.getElementById('matchFb'+i);fb.className='feedback show '+(correct?'good':'bad');let right=objectives.find(o=>o.answer===i);fb.innerHTML=`${correct?'Correcte! +1 punt':'Resposta correcta: '+right.letter+'. '+right.text}`;});
+ let s=document.getElementById('matchSummary');s.className='feedback show '+(matchScore===5?'good':'bad');s.innerHTML=`Resultat de l'exercici 2: <b>${matchScore}/5 punts</b>.`;updateScore();
+}
+function resetMatch(){renderMatch();matchScore=0;matchChecked=false;let s=document.getElementById('matchSummary');s.className='feedback';s.textContent='';updateScore();}
+renderCases();renderMatch();updateScore();
+</script>
+</body></html>
