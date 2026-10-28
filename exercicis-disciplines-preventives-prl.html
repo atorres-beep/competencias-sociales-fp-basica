@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercicis de PRL - Disciplines Preventives</title>
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --card: #ffffff;
+      --primary: #2563eb;
+      --primary-hover: #1d4ed8;
+      --text: #0f172a;
+      --border: #e2e8f0;
+      --correct: #16a34a;
+      --correct-bg: #f0fdf4;
+      --incorrect: #dc2626;
+      --incorrect-bg: #fef2f2;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    h1 {
+      font-size: 1.875rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 24px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+
+    h2 {
+      font-size: 1.25rem;
+      margin-top: 0;
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 12px;
+      color: var(--primary);
+    }
+
+    .item {
+      margin-bottom: 20px;
+      padding: 16px;
+      background: #f1f5f9;
+      border-radius: 8px;
+    }
+
+    .item p {
+      margin-top: 0;
+      font-weight: 500;
+    }
+
+    select {
+      width: 100%;
+      padding: 10px;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      background-color: white;
+      font-size: 1rem;
+      margin-top: 8px;
+    }
+
+    .feedback {
+      margin-top: 10px;
+      padding: 10px 14px;
+      border-radius: 6px;
+      font-size: 0.95rem;
+      display: none;
+    }
+
+    .feedback.correct {
+      display: block;
+      background: var(--correct-bg);
+      color: var(--correct);
+      border: 1px solid #bbf7d0;
+    }
+
+    .feedback.incorrect {
+      display: block;
+      background: var(--incorrect-bg);
+      color: var(--incorrect);
+      border: 1px solid #fecaca;
+    }
+
+    .actions {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      margin-top: 24px;
+    }
+
+    button {
+      padding: 12px 24px;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+
+    .btn-submit {
+      background-color: var(--primary);
+      color: white;
+    }
+
+    .btn-submit:hover {
+      background-color: var(--primary-hover);
+    }
+
+    .btn-reset {
+      background-color: #e2e8f0;
+      color: var(--text);
+    }
+
+    .btn-reset:hover {
+      background-color: #cbd5e1;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <h1>Exercicis de Disciplines Preventives (PRL)</h1>
+    <p>Respon als dos exercicis i prem el botó per verificar les teves respostes.</p>
+  </header>
+
+  <!-- Exercici 1 -->
+  <div class="card">
+    <h2>Exercici 1: Identifica la disciplina o mèdica que ha d'intervenir</h2>
+    
+    <div class="item">
+      <p>a) Una metgessa es contagia pel virus del sarampió després d'atendre un pacient a urgències.</p>
+      <select id="ex1-a">
+        <option value="">-- Selecciona una disciplina --</option>
+        <option value="seguretat">Seguretat en el treball</option>
+        <option value="higiene">Higiene industrial</option>
+        <option value="ergonomia">Ergonomia</option>
+        <option value="psico">Psicosociologia</option>
+        <option value="medicina">Medicina del treball</option>
+      </select>
+      <div id="fb-1a" class="feedback"></div>
+    </div>
+
+    <div class="item">
+      <p>b) Un programador pateix esgotament mental i ansietat per ritmes de treball excessius i torns canviants.</p>
+      <select id="ex1-b">
+        <option value="">-- Selecciona una disciplina --</option>
+        <option value="seguretat">Seguretat en el treball</option>
+        <option value="higiene">Higiene industrial</option>
+        <option value="ergonomia">Ergonomia</option>
+        <option value="psico">Psicosociologia</option>
+        <option value="medicina">Medicina del treball</option>
+      </select>
+      <div id="fb-1b" class="feedback"></div>
+    </div>
+
+    <div class="item">
+      <p>c) Un mosso de magatzem pateix la fractura d'un peu per la bolcada d'un carretó elevador.</p>
+      <select id="ex1-c">
+        <option value="">-- Selecciona una disciplina --</option>
+        <option value="seguretat">Seguretat en el treball</option>
+        <option value="higiene">Higiene industrial</option>
+        <option value="ergonomia">Ergonomia</option>
+        <option value="psico">Psicosociologia</option>
+        <option value="medicina">Medicina del treball</option>
+      </select>
+      <div id="fb-1c" class="feedback"></div>
+    </div>
+
+    <div class="item">
+      <p>d) Una telefonista pateix contractures cervicals contínues per mantenir una postura forçada davant de la pantalla.</p>
+      <select id="ex1-d">
+        <option value="">-- Selecciona una disciplina --</option>
+        <option value="seguretat">Seguretat en el treball</option>
+        <option value="higiene">Higiene industrial</option>
+        <option value="ergonomia">Ergonomia</option>
+        <option value="psico">Psicosociologia</option>
+        <option value="medicina">Medicina del treball</option>
+      </select>
+      <div id="fb-1d" class="feedback"></div>
+    </div>
+  </div>
+
+  <!-- Exercici 2 -->
+  <div class="card">
+    <h2>Exercici 2: Relaciona cada disciplina amb el seu objectiu / camp d'actuació</h2>
+
+    <div class="item">
+      <p>1. Seguretat en el treball</p>
+      <select id="ex2-1">
+        <option value="">-- Selecciona la definició correcta --</option>
+        <option value="a">a. Controla contaminants físics, químics i biològics per evitar malalties professionals.</option>
+        <option value="b">b. Modifica les condicions físiques i mentals del lloc de treball per evitar fatiga i lesions musculoesquelètiques.</option>
+        <option value="c">c. Evita o redueix els accidents de treball que provoquen lesions físiques directes.</option>
+        <option value="d">d. Realitza la vigilància de la salut, tractaments i primers auxilis de la plantilla.</option>
+        <option value="e">e. Combat l'estrès, la insatisfacció laboral, el burnout i els factors organitzatius del treball.</option>
+      </select>
+      <div id="fb-21" class="feedback"></div>
+    </div>
+
+    <div class="item">
+      <p>2. Higiene industrial</p>
+      <select id="ex2-2">
+        <option value="">-- Selecciona la definició correcta --</option>
+        <option value="a">a. Controla contaminants físics, químics i biològics per evitar malalties professionals.</option>
+        <option value="b">b. Modifica les condicions físiques i mentals del lloc de treball per evitar fatiga i lesions musculoesquelètiques.</option>
+        <option value="c">c. Evita o redueix els accidents de treball que provoquen lesions físiques directes.</option>
+        <option value="d">d. Realitza la vigilància de la salut, tractaments i primers auxilis de la plantilla.</option>
+        <option value="e">e. Combat l'estrès, la insatisfacció laboral, el burnout i els factors organitzatius del treball.</option>
+      </select>
+      <div id="fb-22" class="feedback"></div>
+    </div>
+
+    <div class="item">
+      <p>3. Ergonomia</p>
+      <select id="ex2-3">
+        <option value="">-- Selecciona la definició correcta --</option>
+        <option value="a">a. Controla contaminants físics, químics i biològics per evitar malalties professionals.</option>
+        <option value="b">b. Modifica les condicions físiques i mentals del lloc de treball per evitar fatiga i lesions musculoesquelètiques.</option>
+        <option value="c">c. Evita o redueix els accidents de treball que provoquen lesions físiques directes.</option>
+        <option value="d">d. Realitza la vigilància de la salut, tractaments i primers auxilis de la plantilla.</option>
+        <option value="e">e. Combat l'estrès, la insatisfacció laboral, el burnout i els factors organitzatius del treball.</option>
+      </select>
+      <div id="fb-23" class="feedback"></div>
+    </div>
+
+    <div class="item">
+      <p>4. Psicosociologia</p>
+      <select id="ex2-4">
+        <option value="">-- Selecciona la definició correcta --</option>
+        <option value="a">a. Controla contaminants físics, químics i biològics per evitar malalties professionals.</option>
+        <option value="b">b. Modifica les condicions físiques i mentals del lloc de treball per evitar fatiga i lesions musculoesquelètiques.</option>
+        <option value="c">c. Evita o redueix els accidents de treball que provoquen lesions físiques directes.</option>
+        <option value="d">d. Realitza la vigilància de la salut, tractaments i primers auxilis de la plantilla.</option>
+        <option value="e">e. Combat l'estrès, la insatisfacció laboral, el burnout i els factors organitzatius del treball.</option>
+      </select>
+      <div id="fb-24" class="feedback"></div>
+    </div>
+
+    <div class="item">
+      <p>5. Medicina del treball</p>
+      <select id="ex2-5">
+        <option value="">-- Selecciona la definició correcta --</option>
+        <option value="a">a. Controla contaminants físics, químics i biològics per evitar malalties professionals.</option>
+        <option value="b">b. Modifica les condicions físiques i mentals del lloc de treball per evitar fatiga i lesions musculoesquelètiques.</option>
+        <option value="c">c. Evita o redueix els accidents de treball que provoquen lesions físiques directes.</option>
+        <option value="d">d. Realitza la vigilància de la salut, tractaments i primers auxilis de la plantilla.</option>
+        <option value="e">e. Combat l'estrès, la insatisfacció laboral, el burnout i els factors organitzatius del treball.</option>
+      </select>
+      <div id="fb-25" class="feedback"></div>
+    </div>
+  </div>
+
+  <div class="actions">
+    <button class="btn-submit" onclick="comprovar()">Comprovar Respostes</button>
+    <button class="btn-reset" onclick="reiniciar()">Reiniciar</button>
+  </div>
+</div>
+
+<script>
+function comprovar() {
+  // Exercici 1
+  checkAnswer('ex1-a', 'higiene', 'fb-1a', 
+    'Correcte! El virus és un agent biològic; la seva prevenció i control correspon a la Higiene Industrial (i posteriorment l\'atenció mèdica a la Medicina del Treball).',
+    'Incorrecte. Els virus i bacteris són agents biològics, per tant l\'àrea encarregada és la Higiene Industrial.');
+
+  checkAnswer('ex1-b', 'psico', 'fb-1b', 
+    'Correcte! L\'estrès, ritmes de treball i organització de torns corresponen a la Psicosociologia.',
+    'Incorrecte. L\'ansietat i els rítmes de treball tracten la càrrega mental i l\'organització (Psicosociologia).');
+
+  checkAnswer('ex1-c', 'seguretat', 'fb-1c', 
+    'Correcte! Un accident de treball causat per un equip o maquinària és àmbit de la Seguretat en el Treball.',
+    'Incorrecte. Els carretons, caigudes i equips de treball s\'estudien des de la Seguretat en el Treball per evitar accidents.');
+
+  checkAnswer('ex1-d', 'ergonomia', 'fb-1d', 
+    'Correcte! Les postures forçades, equips i pantalles s\'avaluen mitjançant l\'Ergonomia.',
+    'Incorrecte. Les postures de treball i el disseny del lloc per evitar dolors musculars corresponen a l\'Ergonomia.');
+
+  // Exercici 2
+  checkAnswer('ex2-1', 'c', 'fb-21', 'Correcte! (1 - c)', 'Incorrecte. La Seguretat busca evitar o reduir els accidents de treball (opció c).');
+  checkAnswer('ex2-2', 'a', 'fb-22', 'Correcte! (2 - a)', 'Incorrecte. La Higiene Industrial controla contaminants físics, químics i biològics (opció a).');
+  checkAnswer('ex2-3', 'b', 'fb-23', 'Correcte! (3 - b)', 'Incorrecte. L\'Ergonomia adapta el lloc per evitar la fatiga i les lesions musculoesquelètiques (opció b).');
+  checkAnswer('ex2-4', 'e', 'fb-24', 'Correcte! (4 - e)', 'Incorrecte. La Psicosociologia combat l\'estrès, el burnout i problemes organitzatius (opció e).');
+  checkAnswer('ex2-5', 'd', 'fb-25', 'Correcte! (5 - d)', 'Incorrecte. La Medicina del Treball realitza la vigilància de la salut i primers auxilis (opció d).');
+}
+
+function checkAnswer(selectId, expectedValue, feedbackId, correctMsg, incorrectMsg) {
+  const val = document.getElementById(selectId).value;
+  const fb = document.getElementById(feedbackId);
+
+  if (val === '') {
+    fb.className = 'feedback incorrect';
+    fb.innerText = 'Si us plau, selecciona una opció.';
+  } else if (val === expectedValue) {
+    fb.className = 'feedback correct';
+    fb.innerText = correctMsg;
+  } else {
+    fb.className = 'feedback incorrect';
+    fb.innerText = incorrectMsg;
+  }
+}
+
+function reiniciar() {
+  const selects = document.querySelectorAll('select');
+  selects.forEach(s => s.value = '');
+  
+  const feedbacks = document.querySelectorAll('.feedback');
+  feedbacks.forEach(f => {
+    f.style.display = 'none';
+    f.className = 'feedback';
+    f.innerText = '';
+  });
+}
+</script>
+
+</body>
+</html>
